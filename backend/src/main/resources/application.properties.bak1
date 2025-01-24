@@ -1,5 +1,5 @@
 spring.application.name=backend
-server.port=9090
+server.port=${SERVER_PORT}
 
 spring.security.user.name=admin
 spring.security.user.password=b6572d89-97ec-4d9f-b936-ee2d4bd5faaf
@@ -7,9 +7,9 @@ spring.security.user.password=b6572d89-97ec-4d9f-b936-ee2d4bd5faaf
 logging.level.org.springframework.security=DEBUG
 
 # DataSource configuration
-spring.datasource.url=jdbc:postgresql://localhost:5432/mypostgres
-spring.datasource.username=postgres
-spring.datasource.password=qwerty!@#$%
+spring.datasource.url=jdbc:postgresql://db:${POSTGRES_PORT}/${POSTGRES_DB}
+spring.datasource.username=${POSTGRES_USER}
+spring.datasource.password=${POSTGRES_PASSWORD}
 
 # Hibernate dialect for PostgreSQL
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
@@ -33,19 +33,19 @@ security.jwt.secret-key=tEH/EqtZ4kULeTYBWk1ZzsZGEVqTCmU6bTpc9h/5lww=
 security.jwt.expiry-time-in-seconds=86400
 
 # Redis connection settings
-spring.data.redis.host=localhost
-spring.data.redis.port=6380
+spring.data.redis.host=redis
+spring.data.redis.port=${REDIS_PORT}
 spring.data.redis.password=
 #spring.cache.type=redis
 
-spring.mail.host=smtp.gmail.com
-spring.mail.port=587
-spring.mail.username=creative.studio.code@gmail.com
-spring.mail.password=qoto fppw uuxf mciw
+spring.mail.host=${MAIL_HOST}
+spring.mail.port=${MAIL_PORT}
+spring.mail.username=${MAIL_USER}
+spring.mail.password=${MAIL_PASS}
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
 mail.sender.name=ITSEC-TEST
 
-server.login.attemp=5
-server.login.attemp.in.minutes=10
-server.login.block.minutes=30
+server.login.attemp=${SERVER_LOGIN_ATTEMP}
+server.login.attemp.in.minutes=${SERVER_LOGIN_ATTEMP_IN_MINUTES}
+server.login.block.minutes=${SERVER_LOGIN_BLOCK_MINUTES}

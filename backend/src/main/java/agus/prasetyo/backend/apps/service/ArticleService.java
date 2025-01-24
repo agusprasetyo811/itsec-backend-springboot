@@ -136,13 +136,11 @@ public class ArticleService {
             // Check if contributor in
             Article article = articleRepository.findById(UUID.fromString(id)).get();
             if (article.getAuthor().getId() == jwtService.getUserToken(httpServletRequest).getId()) {
-                System.out.println("Update Self ====================> ");
                 ArticleDTO articleDTO = new ArticleDTO();
                 articleDTO.setTitle(articleRequest.getTitle());
                 articleDTO.setContent(articleRequest.getContent());
                 return update(UUID.fromString(id), articleDTO);
             } else {
-                System.out.println("Update Contributor ====================> ");
                 article.setTitle(articleRequest.getTitle());
                 article.setContent(articleRequest.getContent());
                 article.setContributor(jwtService.getUserToken(httpServletRequest));
